@@ -2,8 +2,8 @@
 title: pompompurinとBFの仲間たち
 published: 2022-11-17
 image: ''
-tags: []
-category: ''
+tags: [Threat Actor,Threat Intelligence]
+category: 'Internet Research'
 draft: false 
 lang: ''
 ---
