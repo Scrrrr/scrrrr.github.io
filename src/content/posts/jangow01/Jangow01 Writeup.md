@@ -5,7 +5,7 @@ description: ''
 image: ''
 tags: [Writeup]
 category: 'Boot2Root'
-draft: false 
+draft: true 
 lang: 'ja'
 ---
 
