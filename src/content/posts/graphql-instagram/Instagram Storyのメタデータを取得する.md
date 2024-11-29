@@ -5,7 +5,7 @@ description: ''
 image: ''
 tags: []
 category: 'Internet Research'
-draft: true 
+draft: false 
 lang: 'ja'
 ---
 
@@ -16,13 +16,20 @@ Burp Suiteを使ってInstagramの通信を観測していたところ、たま�
 ### 1.ストーリーを取得する
 Burp SuiteのProxyを起動してからクライアントからストーリーを表示します。  
 ストーリーを表示する前に`HTTP history`をclearしてから押すと後で探しやすくなります。  
-他にBurpを使わなくてもブラウザの開発者ツールのネットワークという項目からも同じことができます。
+![](graphql-query.png)
+
+他にBurpを使わなくてもブラウザの開発者ツールのネットワークという項目からも同じことができます。  
+Storyを閲覧した後に`開発者ツール -> ネットワーク -> 以下の特徴の通信を見つける`
+```
+メッソド　 : POST
+ファイル名 : query
+タイプ 　　: json
+```
 ![](network.png)
 
 
 ### 2.GraphQLからデータを取得する
 `HTTP history`で得た情報からこのような`/graphql/query`に注目します。
-![](graphql-query.png)
 `MEME type`がJSONであるのが特徴です。  
 
 Response Headerには`X-FB-Friendly-Name`という項目があります。これを見ることでjsonの中身が何なのか何となく分かります。
@@ -42,6 +49,6 @@ Response Headerには`X-FB-Friendly-Name`という項目があります。これ
 ![](metadata2.png)
 
 ## 余談
-以前までは`accessibility_caption`という項目で画像に写っている物や文字を自動的に説明する文章が生成されていました。これらは内部で垢BAN対策に用いられているのかなと考察していましたが、今回調べたらNULLに変わっていたのでなくなったのかもしれません。
+以前までは`accessibility_caption`という項目で画像に写っている物や文字を自動的に説明する文章が生成されていました。これらは内部で垢BAN対策に用いられているのかなと考察していましたが、今回調べたらnullに変わっていたのでなくなったのかもしれません。
 ![](GOlJu8paQAA73H1.jpg)
 ![](GOlLYM-bEAAup7a.jpg)
