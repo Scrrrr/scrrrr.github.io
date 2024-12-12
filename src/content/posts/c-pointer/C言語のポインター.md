@@ -105,7 +105,26 @@ int main(void)
 }
 ```
 
+## 文字配列の要素数を求めたいときはstrlenを使おう
+配列の要素数を求めたいときは`sizeof(array)/sizeof(array[0])`をよく使います。
+```c
+/*strがNULLになるまでlenをインクリメントして文字列の長さを得ようとしてる！*/
+void func(char *str)
+{
+    int len = 0;
+    
+    while(*str) //先頭配列が保持されない！
+    {
+        str++;
+        len++;
+    }
 
+    while(str[len]) //先頭配列が保持される
+    {
+        len++;
+    }
+}
+```
 
 
 
